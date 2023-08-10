@@ -1,6 +1,6 @@
 # carest_app
 
-A new Flutter project.
+Hack Uの作品です.
 
 ## Getting Started
 
