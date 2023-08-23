@@ -22,8 +22,32 @@ dev_dependencies:
 
 
 flutter:
+
+  fonts:
+    - family: Zen-M
+      fonts:
+          - asset: assets/font/ZenMaruGothic-Medium.ttf
+
+    - family: Zen-B
+      fonts:
+          - asset: assets/font/ZenMaruGothic-Bold.ttf  
+
+    - family: Zen-R
+      fonts:
+          - asset: assets/font/ZenMaruGothic-Regular.ttf  
+
+    - family: Zen-Bl
+      fonts:
+          - asset: assets/font/ZenMaruGothic-Black.ttf  
+      
+    - family: Zen-L
+      fonts:
+          - asset: assets/font/ZenMaruGothic-Light.ttf  
+
+
+
   assets:
     - assets/images/
-    - assets/images/next_button.png
+    - assets/images/pushed_button.png
 
   uses-material-design: true
