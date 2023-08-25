@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carest_app/screens/tutorial_screen/tutorial_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -41,38 +42,6 @@ class _LoginPageState extends State<LoginPage> {
           Stack(
             alignment: Alignment.center,
             children: [
-              // 左側の増やす画像
-              Positioned(
-                bottom: 50,
-                left: 200,
-                child: Container(
-                  width: 320 * _additionalImagesCount.toDouble(),
-                  height: 96,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/login_button.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-
-              // 右側の増やす画像
-              Positioned(
-                bottom: 50,
-                right: 200,
-                child: Container(
-                  width: 320 * _additionalImagesCount.toDouble(),
-                  height: 96,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/login_button.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-
               Positioned(
                 bottom: 50, // 画面下部に配置
                 child: GestureDetector(
@@ -80,34 +49,36 @@ class _LoginPageState extends State<LoginPage> {
                     setState(() {
                       _isEditing = true;
                       _isAlternateImage = !_isAlternateImage; // 画像を切り替える
-                      _additionalImagesCount++;
                     });
                   },
                   child: Container(
-                    width: 320,
-                    height: 96,
+                    width: _isAlternateImage ? 500 : 320,
+                    height: _isAlternateImage ? 100 : 96,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/login_button.png'),
+                        image: AssetImage(_isAlternateImage
+                            ? 'assets/images/pushed_button.png'
+                            : 'assets/images/login_button.png'),
                         fit: BoxFit.cover,
                       ),
                     ),
                     child: Stack(
-                        // Stack を使用してテキストを重ねる
-                        alignment: Alignment.center, // テキストを中央に配置
-                        children: [
-                          Positioned(
-                            bottom: 0,
-                            child: Text(
-                              _isAlternateImage ? '' : 'ログイン', // 表示するテキスト
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 40,
-                                  fontFamily: 'Zen-B'),
-                            ),
+                      // Stack を使用してテキストを重ねる
+                      alignment: Alignment.center, // テキストを中央に配置
+                      children: [
+                        Positioned(
+                          bottom: 0,
+                          child: Text(
+                            _isAlternateImage ? '' : 'ログイン', // 表示するテキスト
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontFamily: 'Zen-B'),
                           ),
-                        ]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -117,12 +88,26 @@ class _LoginPageState extends State<LoginPage> {
             bottom: 0,
             left: 0,
             child: Container(
-              width: 350,
+              width: 380,
               height: 230,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/apple_button.png'),
                   fit: BoxFit.cover,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.bottomCenter, // テキストを左下に配置
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0), // 適切な余白を設定
+                  child: Text(
+                    '新規アカウント登録',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Zen-B',
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -131,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
             Positioned(
               bottom: 80,
               child: Container(
-                width: 400,
+                width: 250,
                 height: 40,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -140,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: Border.all(color: Color(0xFF90C659), width: 2),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 16), // 左側の余白を指定
+                  padding: EdgeInsets.only(left: 12), // 左側の余白を指定
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: TextField(
@@ -151,14 +136,24 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         }
                       },
+                      onSubmitted: (value) {
+                        // エンターキーが押されたときに実行される処理
+                        // ここで次のページに遷移するなどの操作を行うことができます
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  TutorialScreen()), // 次のページに遷移
+                        );
+                      },
                       style: TextStyle(
                         color: Color(0xFF511C0B),
-                        fontSize: 15,
+                        fontSize: 16,
                         fontFamily: 'Zen-B',
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500,
-                        height: 1.25,
-                        letterSpacing: -0.5,
+                        //fontStyle: FontStyle.normal,
+                        //fontWeight: FontWeight.w500,
+                        //height: 1.25,
+                        //letterSpacing: -0.5,
                       ),
                       decoration: InputDecoration(
                         border: InputBorder.none,

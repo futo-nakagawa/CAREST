@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TimeSettingScreen extends StatefulWidget {
-  const TimeSettingScreen({Key? key}) : super(key: key);
+class ResttimeScreen extends StatefulWidget {
+  const ResttimeScreen({Key? key}) : super(key: key);
 
   @override
-  _TimeSettingScreenState createState() => _TimeSettingScreenState();
+  _ResttimeScreenState createState() => _ResttimeScreenState();
 }
 
-class _TimeSettingScreenState extends State<TimeSettingScreen> {
+class _ResttimeScreenState extends State<ResttimeScreen> {
   int _selectedRadio = 0;
 
   @override
@@ -18,23 +18,10 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
         alignment: Alignment.center,
         child: Stack(
           children: [
-            Positioned(
-              top: 320,
-              left: 24,
-              child: Container(
-                height: 96,
-                width: 176,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/recommend.png'),
-                  ),
-                ),
-              ),
-            ),
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/time_setting.png'),
+                  image: AssetImage('assets/images/rest_time_screen.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,28 +31,22 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '通知の送られてくるタイミングを設定してください',
+                    'お疲れ様でした。\n下の選択肢から休憩時間をお選びください',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFF4C4C4C),
-                      fontSize: 24,
+                      fontSize: 32,
                       fontFamily: 'Zen-R',
                     ),
                   ),
                   SizedBox(height: 32),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
+                      //------30分休む選択エリア-------//
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center, // 中央に配置
                         children: [
-                          Text(
-                            '1時間おきに通知',
-                            style: TextStyle(
-                              color: Color(0xFF4C4C4C),
-                              fontSize: 40,
-                              fontFamily: 'Zen-R',
-                            ),
-                          ),
-                          SizedBox(height: 24),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -76,27 +57,32 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
                               alignment: Alignment.center,
                               children: [
                                 Image.asset(
-                                    'assets/images/radio_button1.png'), // Radio_button1.png
+                                  'assets/images/radio_button1.png',
+                                ), // Radio_button1.png
                                 if (_selectedRadio == 1)
                                   Image.asset(
-                                      'assets/images/apple.png'), // 重ねる画像
+                                    'assets/images/apple.png',
+                                  ), // 重ねる画像
                               ],
+                            ),
+                          ),
+                          SizedBox(width: 120), // 間隔を設定
+                          Text(
+                            '３０分休む',
+                            style: TextStyle(
+                              color: Color(0xFF4C4C4C),
+                              fontSize: 48,
+                              fontFamily: 'Zen-M',
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(width: 260),
-                      Column(
+                      //------30分休む選択エリア-------//
+                      SizedBox(height: 40),
+                      //------15分休む選択エリア-------//
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            '45分おきに通知',
-                            style: TextStyle(
-                              color: Color(0xFF4C4C4C),
-                              fontSize: 40,
-                              fontFamily: 'Zen-R',
-                            ),
-                          ),
-                          SizedBox(height: 24),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -107,27 +93,32 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
                               alignment: Alignment.center,
                               children: [
                                 Image.asset(
-                                    'assets/images/radio_button2.png'), // Radio_button2.png
+                                  'assets/images/radio_button2.png',
+                                ), // Radio_button2.png
                                 if (_selectedRadio == 2)
                                   Image.asset(
-                                      'assets/images/apple.png'), // 重ねる画像
+                                    'assets/images/apple.png',
+                                  ), // 重ねる画像
                               ],
+                            ),
+                          ),
+                          SizedBox(width: 120), // 間隔を設定
+                          Text(
+                            '１５分休む',
+                            style: TextStyle(
+                              color: Color(0xFF4C4C4C),
+                              fontSize: 48,
+                              fontFamily: 'Zen-M',
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(width: 260),
-                      Column(
+                      //------15分休む選択エリア-------//
+                      SizedBox(height: 40),
+                      //------休まない選択エリア-------//
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            '30分おきに通知',
-                            style: TextStyle(
-                              color: Color(0xFF4C4C4C),
-                              fontSize: 40,
-                              fontFamily: 'Zen-R',
-                            ),
-                          ),
-                          SizedBox(height: 24),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -138,32 +129,44 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
                               alignment: Alignment.center,
                               children: [
                                 Image.asset(
-                                    'assets/images/radio_button3.png'), // Radio_button3.png
+                                  'assets/images/radio_button3.png',
+                                ), // Radio_button3.png
                                 if (_selectedRadio == 3)
                                   Image.asset(
-                                      'assets/images/apple.png'), // 重ねる画像
+                                    'assets/images/apple.png',
+                                  ), // 重ねる画像
                               ],
+                            ),
+                          ),
+                          SizedBox(width: 166), // 間隔を設定
+                          Text(
+                            '休まない',
+                            style: TextStyle(
+                              color: Color(0xFF4C4C4C),
+                              fontSize: 48,
+                              fontFamily: 'Zen-M',
                             ),
                           ),
                         ],
                       ),
+                      //------休まない選択エリア-------//
                     ],
                   ),
                 ],
               ),
             ),
             Positioned(
-              bottom: 120, // 任意の縦位置
+              bottom: 44, // 任意の縦位置
               left: 0,
               right: 0,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/get_button.png',
+                    'assets/images/time_confirm.png',
                   ),
                   Text(
-                    'この時間に通知する',
+                    '確定',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 34,
@@ -174,17 +177,10 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
               ),
             ),
             Positioned(
-              bottom: 0, // 任意の縦位置
-              right: 10, // 任意の横位置
+              top: 0, // 任意の縦位置
+              left: 0, // 任意の横位置
               child: Image.asset(
-                'assets/images/setting_button.png',
-              ),
-            ),
-            Positioned(
-              bottom: 0, // 任意の縦位置
-              right: 160, // 任意の横位置
-              child: Image.asset(
-                'assets/images/tutorial_button.png',
+                'assets/images/back_work.png', //作業に戻るボタン
               ),
             ),
           ],

@@ -1,4 +1,4 @@
-import 'tutorial_screen2.dart';
+import 'package:carest_app/screens/time_setting_screen/time_setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class TutorialScreen3 extends StatefulWidget {
@@ -34,7 +34,7 @@ class _TutorialScreen3State extends State<TutorialScreen3> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TutorialScreen2()), // 次のページに遷移
+                        builder: (context) => TimeSettingScreen()), // 次のページに遷移
                   );
                 },
                 child: Container(
