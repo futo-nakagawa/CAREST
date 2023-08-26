@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:carest_app/screens/rest_event/rest_movie.dart';
+import 'package:carest_app/screens/rest_event/rest_bgm.dart';
+import 'package:carest_app/screens/rest_event/rest.dart';
 
 class RestactivityScreen extends StatefulWidget {
   const RestactivityScreen({Key? key}) : super(key: key);
@@ -175,21 +178,43 @@ class _RestactivityScreenState extends State<RestactivityScreen> {
               bottom: 44, // 任意の縦位置
               left: 0,
               right: 0,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/time_confirm.png',
-                  ),
-                  Text(
-                    '確定',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
+              child: GestureDetector(
+                onTap: () {
+                  if (_selectedRadio == 1) ;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RestMovie()), // 次のページに遷移
+                  );
+                  if (_selectedRadio == 2) ;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Rest_BGM()), // 次のページに遷移
+                  );
+                  if (_selectedRadio == 3) ;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyWidget()), // 次のページに遷移
+                  );
+                },
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/time_confirm.png',
                     ),
-                  ),
-                ],
+                    Text(
+                      '確定',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Positioned(

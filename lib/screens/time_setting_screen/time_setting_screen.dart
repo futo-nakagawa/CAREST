@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carest_app/screens/rest_activity/rest_activity_screen.dart';
 
 class TimeSettingScreen extends StatefulWidget {
   const TimeSettingScreen({Key? key}) : super(key: key);
@@ -162,12 +163,22 @@ class _TimeSettingScreenState extends State<TimeSettingScreen> {
                   Image.asset(
                     'assets/images/get_button.png',
                   ),
-                  Text(
-                    'この時間に通知する',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                RestactivityScreen()), // 次のページに遷移
+                      );
+                    },
+                    child: Text(
+                      'この時間に通知する',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

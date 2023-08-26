@@ -5,6 +5,8 @@ import 'package:carest_app/screens/tutorial_screen/tutorial_screen.dart';
 import 'package:carest_app/screens/time_setting_screen/time_setting_screen.dart';
 import 'package:carest_app/screens/rest_time/rest_time_screen.dart';
 import 'package:carest_app/screens/rest_activity/rest_activity_screen.dart';
+import 'package:carest_app/screens/rest_event/rest_bgm.dart';
+import 'package:carest_app/screens/rest_event/rest_movie.dart';
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Zen-M',
       ),
-      home: RestactivityScreen(),
+      home: RestMovie(),
     );
   }
 }
